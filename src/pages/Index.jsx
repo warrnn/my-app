@@ -18,6 +18,28 @@ function Homepage() {
     );
   };
 
+  const handleSearchByClick = () => {
+    const searchValue = document.getElementById("search").value;
+    setSearch(searchValue);
+    setPostCount(
+      posts.filter((post) =>
+        post.title.toLowerCase().includes(searchValue.toLowerCase())
+      ).length
+    );
+  };
+
+  const searchKeyDown = (event) => {
+    if (event.key === "Enter") {
+      const searchValue = document.getElementById("search").value;
+      setSearch(searchValue);
+      setPostCount(
+        posts.filter((post) =>
+          post.title.toLowerCase().includes(searchValue.toLowerCase())
+        ).length
+      );
+    }
+  };
+
   return (
     <>
       <h1>Simple Page</h1>
@@ -26,13 +48,18 @@ function Homepage() {
       <Toggle /> */}
 
       <div>
-        Cari Artikel: <input type="text" onChange={changeSearch} />{" "}
+        Cari Artikel: <input type="text" id="search" onChange={changeSearch} />{" "}
+
+        {/* <input type="text" id="search" /> */}
+        {/* <button onClick={handleSearchByClick}>Search</button> */}
+
+        {/* <input type="text" id="search" onKeyDown={searchKeyDown} /> */}
       </div>
 
       <small>
         Ditemukan {postCount} data dengan pencarian kata {search}
       </small>
-      
+
       {posts
         .filter((post) =>
           post.title.toLowerCase().includes(search.toLowerCase())
@@ -43,6 +70,7 @@ function Homepage() {
             title={post.title}
             date={post.date}
             tags={post.tags}
+            isNew={post.isNew}
           />
         ))}
     </>
