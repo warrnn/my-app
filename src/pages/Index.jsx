@@ -18,27 +18,27 @@ function Homepage() {
     );
   };
 
-  const handleSearchByClick = () => {
-    const searchValue = document.getElementById("search").value;
-    setSearch(searchValue);
-    setPostCount(
-      posts.filter((post) =>
-        post.title.toLowerCase().includes(searchValue.toLowerCase())
-      ).length
-    );
-  };
+  // const handleSearchByClick = () => {
+  //   const searchValue = document.getElementById("search").value;
+  //   setSearch(searchValue);
+  //   setPostCount(
+  //     posts.filter((post) =>
+  //       post.title.toLowerCase().includes(searchValue.toLowerCase())
+  //     ).length
+  //   );
+  // };
 
-  const searchKeyDown = (event) => {
-    if (event.key === "Enter") {
-      const searchValue = document.getElementById("search").value;
-      setSearch(searchValue);
-      setPostCount(
-        posts.filter((post) =>
-          post.title.toLowerCase().includes(searchValue.toLowerCase())
-        ).length
-      );
-    }
-  };
+  // const searchKeyDown = (event) => {
+  //   if (event.key === "Enter") {
+  //     const searchValue = document.getElementById("search").value;
+  //     setSearch(searchValue);
+  //     setPostCount(
+  //       posts.filter((post) =>
+  //         post.title.toLowerCase().includes(searchValue.toLowerCase())
+  //       ).length
+  //     );
+  //   }
+  // };
 
   return (
     <>
